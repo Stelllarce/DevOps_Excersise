@@ -1,7 +1,7 @@
 name: Main workflow
 on: push
 env:
-  docker_username: stelllarce
+  docker_username: stellarce
   docker_password: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   Build:
