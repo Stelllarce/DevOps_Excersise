@@ -12,11 +12,13 @@ jobs:
         uses: actions/checkout@v4  
       - name: Run Sonar cloud
         uses: sonarsource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.exclusions=app/src/main/java/example/micronaut/**
+            -Dsonar.projectKey=my_project_key
+            -Dsonar.organization=my_organization
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.exclusions=src/main/java/example/micronaut/**
 
   Build:
     runs-on: ubuntu-latest
