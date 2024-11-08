@@ -16,7 +16,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.exclusions=src/main/java/example/micronaut/**
+            -sonar.exclusions=src/main/java/example/micronaut/*.java
 
   Build:
     runs-on: ubuntu-latest
