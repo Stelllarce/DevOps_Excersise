@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Sonar cloud
-      - uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@master
+
+  SecurityTrivy:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run Trivy
-      - uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@master
   Build:
     runs-on: ubuntu-latest
     needs: [Security]
