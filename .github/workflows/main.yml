@@ -12,15 +12,15 @@ jobs:
         uses: actions/checkout@v4  
       - name: Run Sonar cloud
         uses: sonarsource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: 53057145dda5eff059d682a26c447a3bf820d825
         with:
           args: >
             -Dsonar.projectKey=my_project_key
             -Dsonar.organization=my_organization
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.login= 53057145dda5eff059d682a26c447a3bf820d825
             -Dsonar.exclusions=src/main/java/example/micronaut/**
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   Build:
     runs-on: ubuntu-latest
