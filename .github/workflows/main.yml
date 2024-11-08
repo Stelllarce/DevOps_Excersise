@@ -5,6 +5,8 @@ env: # Set the secret as an input
   docker_password: ${{ secrets.GITHUB_TOKEN }} #Nees to be set to be made available to the workflow
   GIT_COMMIT: ${{ github.sha }}
 jobs:
+  SonarCloud:
+    
   Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
