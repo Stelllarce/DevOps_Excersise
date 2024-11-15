@@ -7,6 +7,7 @@ env: # Set the secret as an input
 jobs:
   Snyk:
     runs-on: ubuntu-latest
+    container: gradle:6-jdk11
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,7 +24,7 @@ jobs:
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk test
-        run: snyk test --all-projects
+        run: snyk test --file=app/build.gradle --all-projects
 
       - name: Monitor with Snyk
         run: snyk monitor --all-projects
